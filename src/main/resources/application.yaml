@@ -4,19 +4,27 @@ spring:
     database: mysql
     show-sql: true
     hibernate:
-      ddl-auto: create
+      ddl-auto: validate
 
   datasource:
     url: jdbc:mysql://localhost:3306/osbb?serverTimezone=UTC
-    username: root
-    password: root
+    username: serhii
+    password: F,hfrflf,hf314
 
   liquibase:
     change-log: classpath:/changelog/db.changelog-master.yaml
+
+server:
+  servlet:
+    contextPath: /api
 
 security:
   token:
     secret: 9DKxk4ZuopLtywwSoyIR45mdLOiPa1zw
     expire: 24
 
-
+app:
+  weather:
+    api:
+      url: http://api.openweathermap.org/data/2.5/weather?q={city}&APPID={key}
+      key: 6a4aab2f0bfdd22abd9ce388ce4ef89b
